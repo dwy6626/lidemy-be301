@@ -1,9 +1,5 @@
-import { log } from './utils'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './app'
 
-
-const obj = {
-    text: 'hello, world!'
-}
-const { text } = obj  // ES6 destruction
-
-log(text)
+ReactDOM.render(<App/>, document.getElementById('root'))
