@@ -8,14 +8,15 @@ class Text extends React.Component {
 
 class Title extends React.Component {
     render() {
-        return <h1>title</h1>
+        const title = 'title'
+        return <h1 onClick={() => alert('hi')}>{ title }</h1>
     }
 }
 
 class App extends React.Component {
     render() {
-        return(
-            <div>
+        return (
+            <div className="content">
                 <Title/>
                 <Text/>
             </div>
