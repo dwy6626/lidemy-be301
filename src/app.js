@@ -58,6 +58,18 @@ class App extends React.Component {
         // 為了讓 `this` 能在 callback 中被使用，這裡的綁定是必要的：
         this.handleClick = this.handleClick.bind(this);
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.counter === this.state.counter) { return }
+        window.localStorage.setItem('counterApp', JSON.stringify(this.state.counter))
+    }
+
+    componentDidMount() {
+        const counter = window.localStorage.getItem('counterApp')
+        if (!counter) { return }
+        this.setState({ counter: JSON.parse(counter) })
+    }
+
     render() {
         return (
             <div className="content">
@@ -70,6 +82,7 @@ class App extends React.Component {
             </div>
         )
     }
+
     handleClick() {
         this.setState({ counter: this.state.counter + 1 })
     }
