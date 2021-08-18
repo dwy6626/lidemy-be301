@@ -14,13 +14,27 @@ class Title extends React.Component {
 }
 
 class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            counter: 1
+        }
+
+        // 為了讓 `this` 能在 callback 中被使用，這裡的綁定是必要的：
+        this.handleClick = this.handleClick.bind(this);
+    }
     render() {
         return (
             <div className="content">
                 <Title/>
                 <Text/>
+                <p>{ this.state.counter }</p>
+                <button onClick={this.handleClick}>click me</button>
             </div>
         )
+    }
+    handleClick() {
+        this.setState({ counter: this.state.counter + 1 })
     }
 }
 
