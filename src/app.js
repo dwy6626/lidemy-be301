@@ -9,7 +9,19 @@ class Text extends React.Component {
 class Title extends React.Component {
     render() {
         const title = 'title'
-        return <h1 onClick={() => alert('hi')}>{ title }</h1>
+        return <h1 onClick={ () => alert('hi') }>{ title }</h1>
+    }
+}
+
+class Counter extends React.Component {
+    render() {
+        return <p>{ this.props.number }</p>
+    }
+}
+
+class CounterWrapper extends React.Component {
+    render() {
+        return <p>{ this.props.children }</p>
     }
 }
 
@@ -28,8 +40,9 @@ class App extends React.Component {
             <div className="content">
                 <Title/>
                 <Text/>
-                <p>{ this.state.counter }</p>
-                <button onClick={this.handleClick}>click me</button>
+                <Counter number={ this.state.counter }/>
+                <CounterWrapper>{ this.state.counter }</CounterWrapper>
+                <button onClick={ this.handleClick }>click me</button>
             </div>
         )
     }
