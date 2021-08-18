@@ -25,6 +25,12 @@ class CounterWrapper extends React.Component {
     }
 }
 
+function CounterAlt({ number }) {
+    return (
+        <div>{ number }</div>
+    )
+}
+
 class App extends React.Component {
     constructor() {
         super()
@@ -41,6 +47,7 @@ class App extends React.Component {
                 <Title/>
                 <Text/>
                 <Counter number={ this.state.counter }/>
+                <CounterAlt number={ this.state.counter }/>
                 <CounterWrapper>{ this.state.counter }</CounterWrapper>
                 <button onClick={ this.handleClick }>click me</button>
             </div>
