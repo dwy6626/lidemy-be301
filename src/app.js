@@ -16,9 +16,17 @@ class Text extends React.Component {
 }
 
 class Title extends React.Component {
+    constructor(props) {
+        super(props)
+        console.log('title created')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.title === this.props.title
+    }
+
     render() {
-        const title = 'title'
-        return <h1 onClick={ () => alert('hi') }>{ title }</h1>
+        return <h1 onClick={ () => alert('hi') }>{ this.props.title }</h1>
     }
 }
 
@@ -53,7 +61,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="content">
-                <Title/>
+                <Title title='some text'/>
                 <Text/>
                 <Counter number={ this.state.counter }/>
                 <CounterAlt number={ this.state.counter }/>
