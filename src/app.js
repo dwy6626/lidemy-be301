@@ -1,5 +1,13 @@
 import React from 'react'
 import './style.css'
+import styled from 'styled-components'
+
+
+const RedP = styled.p`
+    color: red;
+    font-size: 2em;
+`
+
 
 class Text extends React.Component {
     render() {
@@ -22,7 +30,7 @@ class Counter extends React.Component {
 
 class CounterWrapper extends React.Component {
     render() {
-        return <p>{ this.props.children }</p>
+        return <RedP>{ this.props.children }</RedP>
     }
 }
 
